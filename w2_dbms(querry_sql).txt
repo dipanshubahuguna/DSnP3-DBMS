@@ -1,0 +1,9 @@
+1) select match_num from public.matches where host_team_score>guest_team_score
+
+2) select jersey_home_color,jersey_away_color from public.teams where name like'All Stars'
+
+3) select name from public.players where team_id in (select team_id from public.teams where name like'All Stars')
+
+4) select student_fname,student_lname from public.students where department_code like'MCA' and dob>'2002-06-15'
+
+5) select faculty_fname,faculty_lname from public.faculty where department_code in(select department_code from public.departments where department_name like'Computer Science')
