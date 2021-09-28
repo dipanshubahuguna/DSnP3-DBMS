@@ -1,0 +1,9 @@
+1)select m.match_num,e.name from matches m,match_referees r, referees e where match_date='2020-05-11' and m.match_num=r.match_num and e.referee_id=r.referee
+
+2)select name from public.players where dob in (select max(dob) from public.players where team_id in (select team_id from public.teams where name like'All Stars'))
+
+3)select name from public.teams where team_id not in (select team_id from public.players where jersey_no=74)
+
+4)select student_fname,student_lname from students where roll_no in (select roll_no from members where member_no in (select distinct(member_no) from book_issue)) 
+
+5)select c.title,count(cop.accession_no) as no_of_copies from book_catalogue c,book_copies cop where c.title like'%Database%' and c.isbn_no = cop.isbn_no group by(c.title)
